@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HW4._27.ImageUpload.Data
 {
-    internal class ImageRepository
+    public class ImageRepository
     {
         private readonly string _connectionString;
         public ImageRepository(string connectionString)

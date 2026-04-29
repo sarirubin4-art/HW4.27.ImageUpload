@@ -17,8 +17,4 @@
 		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.15" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="..\HW4.27.ImageUpload.Web\HW4.27.ImageUpload.Web.csproj" />
-	</ItemGroup>
-
 </Project>

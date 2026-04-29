@@ -6,4 +6,12 @@
     <RootNamespace>HW4._27.ImageUpload.Web</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HW4.27.ImageUpload.Data\HW4.27.ImageUpload.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
 </Project>

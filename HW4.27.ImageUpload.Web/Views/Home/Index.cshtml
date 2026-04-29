@@ -1,8 +1,25 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@using HW4._27.ImageUpload.Web.Models;
+@using HW4._27.ImageUpload.Data;
+@model HomePageViewModel;
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+
+	@foreach (Image image in Model.Images)
+	{
+		<div class="col">
+			<div class="card">
+				<img src=" /images/@image.ImagePath" class="card-img-top" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">@image.Title</h5>
+					<p class="card-text">@image.DateSubmitted.ToLongTimeString()</p>
+					<p class="card-subtitle likes">
+						Likes: 
+						<i class="bi bi-hand-thumbs-up"></i>
+						@image.LikedByIds.Count;
+					</p>
+				</div>
+			</div>
+		</div>
+	}
+
 </div>
