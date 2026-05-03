@@ -10,16 +10,22 @@
 			<div class="card">
 				<img src=" /images/@image.ImagePath" class="card-img-top" alt="...">
 				<div class="card-body">
-					<h5 class="card-title">@image.Title</h5>
-					<p class="card-text">@image.DateSubmitted.ToLongTimeString()</p>
+					<h5 class="card-title">
+						<a href="/home/imagepage?id=@image.Id">@image.Title</a>
+						</h5>
 					<p class="card-subtitle likes">
-						Likes: 
-						<i class="bi bi-hand-thumbs-up"></i>
-						@image.LikedByIds.Count;
+						<i class="bi bi-hand-thumbs-up">Likes:</i>
+						<span id="likecount-@image.Id"></span>
+						<button class="btn btn-outline-primary" id="likeimage" data-image-id="@image.Id">Like this image!</button>
 					</p>
+					<p class="card-text"><small class="text-body-secondary">Posted on @image.DateSubmitted.ToLongDateString() at @image.DateSubmitted.ToShortTimeString()</small></p>
 				</div>
 			</div>
 		</div>
 	}
 
 </div>
+
+@section Scripts{
+	<script src="/js/images.js"></script>
+}

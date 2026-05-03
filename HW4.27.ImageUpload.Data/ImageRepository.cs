@@ -14,6 +14,12 @@ namespace HW4._27.ImageUpload.Data
             _connectionString = connectionString;
         }
 
+        public Image GetById(int id)
+        {
+            using var ctx = new ImageDataContext(_connectionString);
+            
+            return ctx.Images.FirstOrDefault(i => i.Id == id);
+        }
         public List<Image> GetAll()
         {
             using var ctx = new ImageDataContext(_connectionString);
@@ -23,17 +29,31 @@ namespace HW4._27.ImageUpload.Data
         public void UploadImage(Image image)
         {
             using var ctx = new ImageDataContext(_connectionString);
+            
             ctx.Images.Add(image);
             ctx.SaveChanges();
         }
 
-        public void AddLike(int userId, int imageId)
+        public int GetLikesCount(int imageId)
+        {
+            using var ctx = new ImageDataContext(_connectionString);
+            if (GetById(imageId) != null)
+            {
+                return ctx.Images.FirstOrDefault(i => i.Id == imageId).Likes;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public void AddLike(int imageId)
         {
             using var ctx = new ImageDataContext(_connectionString);
             Image image = ctx.Images.FirstOrDefault(i => i.Id == imageId);
             if (image != null)
             {
-                image.LikedByIds.Add(userId);
+                image.Likes++;
             }
             ctx.SaveChanges();
         }

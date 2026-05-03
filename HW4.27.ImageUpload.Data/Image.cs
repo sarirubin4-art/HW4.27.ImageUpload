@@ -12,6 +12,6 @@ namespace HW4._27.ImageUpload.Data
         public string Title { get; set; }
         public string ImagePath { get; set; }
         public DateTime DateSubmitted { get; set; }
-        public List<int> LikedByIds { get; set; }
+        public int Likes { get; set; } 
     }
 }

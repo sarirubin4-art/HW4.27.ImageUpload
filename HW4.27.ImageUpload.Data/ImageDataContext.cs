@@ -17,7 +17,7 @@ namespace HW4._27.ImageUpload.Data
             optionsBuilder.UseSqlServer(_connectionString);
         }
 
-        public DbSet<Image> Images { get; set; }
+        public DbSet<Image> Images { get; set; } 
 
     }
 }
